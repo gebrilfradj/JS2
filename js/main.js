@@ -1,10 +1,6 @@
-// Math Methods and Properties
+// your first code challenge
 
+const myName = "gebril";
 
-// from 1 to 10
-console.log(Math.floor(Math.random() * 10)+ 1);
-console.log(Math.floor(Math.random() * 10)+ 1);
-console.log(Math.floor(Math.random() * 10)+ 1);
-console.log(Math.floor(Math.random() * 10)+ 1);
-console.log(Math.floor(Math.random() * 10)+ 1);
-console.log(Math.floor(Math.random() * 10)+ 1);
+index = Math.floor(Math.random()*(myName.length)) + 1;
+console.log(myName.charAt(index-1));
