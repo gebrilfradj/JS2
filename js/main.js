@@ -1,6 +1,29 @@
-// your first code challenge
+// conditionals: If statements
 
-const myName = "gebril";
-
-index = Math.floor(Math.random()*(myName.length)) + 1;
-console.log(myName.charAt(index-1));
+if (playerOne === computer){
+  // tie game!
+}
+else if(playerOne === "rock"){
+  if (computer === "paper"){
+    // computer wins
+  }  
+  else{
+    // playerOne wins
+  }
+}
+else if(playerOne === "paper"){
+  if (computer === "scissors"){
+    // computer wins
+  }  
+  else{
+    // playerOne wins
+  }
+}
+else{
+  if (computer === "rock"){
+    // computer wins
+  }  
+  else{
+    // playerOne wins
+  }
+}
