@@ -1,17 +1,11 @@
-// conditionals: ternary Operator
+// user Input
+let name = prompt("Please enter your name.");
+if (name){
+  console.log(name.length);
+  console.log(name.trim().length);
+  console.log(name.trim());
 
-
-let playerOne = "rock";
-let computer = "scissors";
-let result =
-  playerOne === computer
-    ? "tie game!"
-    : playerOne === "rock" && computer === "paper"
-    ? "Computer wins!"
-    : playerOne === "paper" && computer === "scissors"
-    ? "Computer wins!"
-    : playerOne === "scissors" && computer === "rock"
-    ? "computer wins!"
-    : "playerOne wins!";
-
-    console.log(result);
+}
+else{
+  console.log("You didn't enter your name.")
+}
