@@ -1,33 +1,17 @@
-// conditionals: Switch statements
+// conditionals: ternary Operator
 
-let playerOne = "scissors";
-let computer = "rock";
 
-switch (playerOne){
-  case computer:
-    console.log("tie game!");
-    break
-  case "rock":
-    if (computer === "paper"){
-      console.log("computer wins");
-    }  
-    else{
-      console.log("playerOne wins");
-    }
-    break;
-  case "paper":
-    if (computer === "scissors"){
-      console.log("computer wins");
-    }  
-    else{
-      console.log("playerOne wins");
-    }
-    break;
-  default:
-    if (computer === "rock"){
-      console.log("computer wins");
-    }  
-    else{
-      console.log("playerOne wins");
-    }
-}
+let playerOne = "rock";
+let computer = "scissors";
+let result =
+  playerOne === computer
+    ? "tie game!"
+    : playerOne === "rock" && computer === "paper"
+    ? "Computer wins!"
+    : playerOne === "paper" && computer === "scissors"
+    ? "Computer wins!"
+    : playerOne === "scissors" && computer === "rock"
+    ? "computer wins!"
+    : "playerOne wins!";
+
+    console.log(result);
