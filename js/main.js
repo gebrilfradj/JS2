@@ -1,29 +1,33 @@
-// conditionals: If statements
+// conditionals: Switch statements
 
-if (playerOne === computer){
-  // tie game!
-}
-else if(playerOne === "rock"){
-  if (computer === "paper"){
-    // computer wins
-  }  
-  else{
-    // playerOne wins
-  }
-}
-else if(playerOne === "paper"){
-  if (computer === "scissors"){
-    // computer wins
-  }  
-  else{
-    // playerOne wins
-  }
-}
-else{
-  if (computer === "rock"){
-    // computer wins
-  }  
-  else{
-    // playerOne wins
-  }
+let playerOne = "scissors";
+let computer = "rock";
+
+switch (playerOne){
+  case computer:
+    console.log("tie game!");
+    break
+  case "rock":
+    if (computer === "paper"){
+      console.log("computer wins");
+    }  
+    else{
+      console.log("playerOne wins");
+    }
+    break;
+  case "paper":
+    if (computer === "scissors"){
+      console.log("computer wins");
+    }  
+    else{
+      console.log("playerOne wins");
+    }
+    break;
+  default:
+    if (computer === "rock"){
+      console.log("computer wins");
+    }  
+    else{
+      console.log("playerOne wins");
+    }
 }
