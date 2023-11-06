@@ -1,16 +1,4 @@
-// loops
-let name = "dave";
-let counter = 0;
-let myLetter;
+// functions
 
-while(counter <= 3){
-  myLetter = name[counter];
-  console.log(myLetter);
-  if(counter === 1){
-    counter += 2;
-    continue;
-  }
-  if (myLetter=== "v") break;
-  counter++
-}
-console.log(counter);
+// function Reusable code!
+
