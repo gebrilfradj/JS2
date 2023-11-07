@@ -1,22 +1,22 @@
-// json 
-const myObj= {
-  name: "Dave",
-  hobbies: ["eat", "sleep", "code"];
-  hello: function(){
-    console.log("hello!");
+// javascript errors
+ 
+"use strict";
+const makeError = () => {
+  let i =1;
+  while(i <= 5){
+    try {
+      if (i % 2 !== 0){
+        throw new Error("Odd number!");
+      }
+      console.log("Even number!");
+    } catch(err){
+      console.error(err.stack);
+
+    } finally {
+      console.log("...finally");
+      i++;
+    }
   }
 };
 
-console.log(myObj);
-console.log(myObj.name);
-myObj.hello();
-console.log(typeof myObj);
-
-const sendJSON = JSON.stringify(myObj);
-console.log(sendJSON);
-console.log(typeof sendJSON);
-console.log(sendJSON.name);
-
-const recieveJSON = JSON.parse(sendJSON);
-console.log(recieveJSON);
-console.log(typeof recieveJSON);
+makeError();
