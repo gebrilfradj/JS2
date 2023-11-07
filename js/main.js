@@ -1,23 +1,22 @@
-// javacript classes
-class Pizza{
-  crust = "original";
-  #sauce = "traditional";
-  #size;
-  constructor(pizzaSize){
-    this.#size = pizzaSize;
+// json 
+const myObj= {
+  name: "Dave",
+  hobbies: ["eat", "sleep", "code"];
+  hello: function(){
+    console.log("hello!");
+  }
+};
 
-  }
-  getCrust(){
-    return this.crust;
-  }
-  setCrust(pizzaCrust){
-    this.crust = pizzaCrust;
-  }
-  hereYouGo(){
-    console.log('Heres your ${this.crust} ${this.#sauce} sauce ${this.#size} pizza.');
-  }
-}
+console.log(myObj);
+console.log(myObj.name);
+myObj.hello();
+console.log(typeof myObj);
 
-const myPizza = new Pizza("large");
-myPizza.hereYouGo();
-console.log(myPizza.crust);
+const sendJSON = JSON.stringify(myObj);
+console.log(sendJSON);
+console.log(typeof sendJSON);
+console.log(sendJSON.name);
+
+const recieveJSON = JSON.parse(sendJSON);
+console.log(recieveJSON);
+console.log(typeof recieveJSON);
