@@ -1,15 +1,23 @@
-// objects
+// javacript classes
+class Pizza{
+  crust = "original";
+  #sauce = "traditional";
+  #size;
+  constructor(pizzaSize){
+    this.#size = pizzaSize;
 
-const band = {
-  vocals: "Robert Plant",
-  guitar: "Jimmy Page",
-  bass: "John Paul Jones",
-  drums: "John Bonham"
-};
-
-//destructuring objects
-
-function sings({vocals}){
-  return '${vocals} sings!';
+  }
+  getCrust(){
+    return this.crust;
+  }
+  setCrust(pizzaCrust){
+    this.crust = pizzaCrust;
+  }
+  hereYouGo(){
+    console.log('Heres your ${this.crust} ${this.#sauce} sauce ${this.#size} pizza.');
+  }
 }
-console.log(sings(band));
+
+const myPizza = new Pizza("large");
+myPizza.hereYouGo();
+console.log(myPizza.crust);
