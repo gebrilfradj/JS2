@@ -1,16 +1,14 @@
-//javascriot event lsiteners
-document.addEventListener("readystatechange", (event) => {
-  if (event.target.readyState === "complete"){
-    console.log("readyState: complete");
-    initApp();
+const myarray = ["eat", "sleep", "code"];
+const myObject = {
+  name: "dave",
+  hobbies: ["eat", "sleep", "code"],
+  logName: function() {
+    console.log(this.name);
   }
-});
-
-const initApp = () => {
-  const view3 = document.querySelector("#view3");
-  const myForm = view3.querySelector("#myForm");
-  myForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    console.log("submit event");
-  });
 };
+
+localStorage.setItem("myLocalStore", JSON.stringify(myarray));
+const storeLength = localStorage.length;
+const myLocalData = JSON.parse(localStorage.getItem("myLocalStore"));
+
+console.log(storeLength);
