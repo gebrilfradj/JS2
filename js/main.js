@@ -1,24 +1,33 @@
-// higher order funtions
+// fetch
+const getDataFromForm = () => {
+  const requestObj = {
+    firstName: "bruce",
+    lastName: "lee",
+    categories: ["nerdy"]
+  };
+  return requestObj;
+}
 
-import {posts } from "./posts.js";
-posts.forEach((post) => {
-  console.log(post);
-});
-console.clear();
+const buildRequestUrl = (requestData) => {
+  return 'http://api.icndb.com/jokes/random?firstName=${requestData.firstName}&lastName=${requestData.lastname}&limitTo=${requestData.categories}';
+}
 
-const filteredPosts = posts.filter((post) => {
-  return post.userId === 1;
-});
+const requestJoke = async (url) => {
+  const response = await fetch(url);
+  const jsonResponse = await response.json();
+  const joke = jsonResponse.value.joke;
+  postJokeToPage(joke);
+}
 
-console.log(filteredPosts);
+const postJokeToPage = (joke) => {
+  console.log(joke);
+}
 
-const mappedPosts = filteredPosts.map((post)=> {
-  return post.id * 10;
-});
-console.log(mappedPosts);
+const processJokeRequest = async () => {
+  const requestData = getDataFromForm();
+  const requestUrl = buildRequestUrl(requestData);
+  await requestJoke(requestUrl);
+  console.log("finished!");
+}
 
-const reducedPostsValue = mappedPosts.reduce((sum,post) => {
-  return sum + post;
-});
-
-console.log(reducedPostsValue);
+processJokeRequest();
