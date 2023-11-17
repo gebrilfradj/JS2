@@ -1,33 +1,37 @@
-// fetch
-const getDataFromForm = () => {
-  const requestObj = {
-    firstName: "bruce",
-    lastName: "lee",
-    categories: ["nerdy"]
-  };
-  return requestObj;
-}
+document.getElementById("phoneNum").addEventListener("input", (event) => {
+  const regex = /^\(?(\d{3})\)?[-. ]?(\d{3})[-. ]?(\d{4})$/g;
+  const input = document.getElementById("phoneNum");
+  const format = document.querySelector(".phoneFormat");
+  const phone = input.ariaValueMax;
+  const found = regex.test(phone);
+  if (!found && phone.length){
+    input.classList.add("invali");
+    format.classList.add("block");
 
-const buildRequestUrl = (requestData) => {
-  return 'http://api.icndb.com/jokes/random?firstName=${requestData.firstName}&lastName=${requestData.lastname}&limitTo=${requestData.categories}';
-}
+  }
+  else{
+    input.classList.remove("invalid");
+    format.classList.remove("block");
 
-const requestJoke = async (url) => {
-  const response = await fetch(url);
-  const jsonResponse = await response.json();
-  const joke = jsonResponse.value.joke;
-  postJokeToPage(joke);
-}
+  }
+});
 
-const postJokeToPage = (joke) => {
-  console.log(joke);
-}
+document.getElementById("phoneForm").addEventListener("submit", (event) => {
+  event.preventDefault();
+  const input = document.getElementById("phoneNum");
+  const regex = /[()-. ]/g;
+  const savedPhoneNum = input.value.replaceAll(regex, " ");
+  console.log(savedPhoneNum);
+});
 
-const processJokeRequest = async () => {
-  const requestData = getDataFromForm();
-  const requestUrl = buildRequestUrl(requestData);
-  await requestJoke(requestUrl);
-  console.log("finished!");
-}
-
-processJokeRequest();
+document.getElementById("textForm").addEventListener("submit", (event) => {
+  event.preventDefault();
+  const input = document.getElementById("textEntry");
+  const regex = / {2, }/g;
+  const newText = input.value.replaceAll(regex, " ").trim();
+  console.log(newText);
+  const encodedInputText = encodeURI(input.value);
+  const encodedCleanText = encodeURI(newText);
+  console.log(encodedInputText);
+  console.log(encodedCleanText);
+})
